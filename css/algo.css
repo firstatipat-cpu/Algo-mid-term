@@ -1064,6 +1064,11 @@ input[type="range"]{
 .dc-s1{background:color-mix(in srgb,var(--primary) 18%,var(--bg-card));border-color:var(--primary)}
 .dc-s2{background:color-mix(in srgb,var(--gold) 20%,var(--bg-card));border-color:var(--gold)}
 .dc-s3{background:color-mix(in srgb,var(--accent) 18%,var(--bg-card));border-color:var(--accent)}
+.dc-pill{
+  padding:6px 14px;border-radius:999px;background:var(--bg-card);
+  border:1px solid var(--line);font-family:'JetBrains Mono',monospace;
+  font-size:13px;font-weight:600;color:var(--ink);white-space:nowrap;
+}
 .ss-info{
   margin-top:14px;padding:16px;border:1px solid var(--line);
   border-radius:12px;background:var(--bg-alt);min-height:52px;

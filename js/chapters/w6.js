@@ -120,7 +120,7 @@ i <span class="tok-op">←</span> <span class="tok-num">0</span>; modefrequency 
         <div style="margin-top:14px">
           <div class="tag-row"><span class="badge badge-accent">Heap = ต้นไม้เต็มที่ root ใหญ่สุด (max-heap)</span></div>
           <div style="text-align:center;margin-top:8px">
-            <svg viewBox="0 0 260 120" style="max-width:300px;width:100%">
+            <svg viewBox="0 0 260 134" style="max-width:300px;width:100%">
               <g stroke="var(--line)" stroke-width="1.5" fill="none">
                 <path d="M70 28 L40 70 M70 28 L100 70 M40 70 L25 112 M40 70 L55 112 M100 70 L85 112 M100 70 L115 112"/>
               </g>

@@ -251,23 +251,23 @@ document.getElementById('w4').innerHTML = String.raw`
         </div>
         <div id="josResult" style="margin-top:10px;font-size:14px;color:var(--ink-2);line-height:1.8">ใส่ค่า n แล้วกด <strong>คำนวณ</strong></div>
         <div style="margin-top:12px;text-align:center">
-          <svg viewBox="0 0 300 170" style="max-width:360px;width:100%">
+          <svg viewBox="0 0 300 178" style="max-width:340px;width:100%">
             <g stroke="var(--line)" stroke-width="1.5" fill="none">
-              <circle cx="95" cy="85" r="62" stroke-dasharray="3 3"/>
+              <circle cx="150" cy="95" r="70" stroke-dasharray="3 3"/>
             </g>
-            <text x="95" y="20" text-anchor="middle" font-size="12" font-family="Space Grotesk" fill="var(--muted)">นับ 1 → ฆ่าเลขคู่ 2,4,6,8 …</text>
+            <text x="150" y="14" text-anchor="middle" font-size="12" font-family="Space Grotesk" fill="var(--muted)">นับ 1 → ฆ่าเลขคู่ 2,4,6,8 …</text>
             <g font-size="12" font-family="JetBrains Mono" font-weight="bold">
-              <circle cx="95" cy="23" r="12" fill="var(--accent)"/><text x="95" y="28" text-anchor="middle" fill="#fff">1</text>
-              <circle cx="157" cy="85" r="12" fill="#FECACA"/><text x="157" y="90" text-anchor="middle" fill="#991B1B">2✕</text>
-              <circle cx="95" cy="147" r="12" fill="var(--primary)"/><text x="95" y="152" text-anchor="middle" fill="#fff">3</text>
-              <circle cx="33" cy="85" r="12" fill="#FECACA"/><text x="33" y="90" text-anchor="middle" fill="#991B1B">4✕</text>
-              <circle cx="228" cy="50" r="12" fill="#FECACA"/><text x="228" y="55" text-anchor="middle" fill="#991B1B">5✕</text>
-              <circle cx="160" cy="140" r="12" fill="#FECACA"/><text x="160" y="145" text-anchor="middle" fill="#991B1B">6✕</text>
-              <circle cx="30" cy="50" r="12" fill="#FECACA"/><text x="30" y="55" text-anchor="middle" fill="#991B1B">7✕</text>
-              <circle cx="230" cy="120" r="12" fill="#FECACA"/><text x="230" y="125" text-anchor="middle" fill="#991B1B">8✕</text>
-              <circle cx="95" cy="85" r="12" fill="#FEF3C7"/><text x="95" y="90" text-anchor="middle" fill="#92400E">9</text>
+              <circle cx="150" cy="25" r="13" fill="var(--accent)"/><text x="150" y="30" text-anchor="middle" fill="#fff">1</text>
+              <circle cx="195" cy="41" r="13" fill="#FECACA"/><text x="195" y="46" text-anchor="middle" fill="#991B1B">2✕</text>
+              <circle cx="219" cy="83" r="13" fill="#FEF3C7"/><text x="219" y="88" text-anchor="middle" fill="#92400E">3</text>
+              <circle cx="211" cy="130" r="13" fill="#FECACA"/><text x="211" y="135" text-anchor="middle" fill="#991B1B">4✕</text>
+              <circle cx="174" cy="161" r="13" fill="var(--primary)"/><text x="174" y="166" text-anchor="middle" fill="#fff">5</text>
+              <circle cx="126" cy="161" r="13" fill="#FECACA"/><text x="126" y="166" text-anchor="middle" fill="#991B1B">6✕</text>
+              <circle cx="89" cy="130" r="13" fill="var(--primary)"/><text x="89" y="135" text-anchor="middle" fill="#fff">7</text>
+              <circle cx="81" cy="83" r="13" fill="#FECACA"/><text x="81" y="88" text-anchor="middle" fill="#991B1B">8✕</text>
+              <circle cx="105" cy="41" r="13" fill="var(--primary)"/><text x="105" y="46" text-anchor="middle" fill="#fff">9</text>
             </g>
-            <text x="252" y="160" text-anchor="middle" font-size="10" fill="var(--muted)">ตัวอย่าง n=9 → ผู้รอด = 3</text>
+            <text x="150" y="174" text-anchor="middle" font-size="10" fill="var(--muted)">ตัวอย่าง n=9 → ตัวที่ 3 รอด  (J(9) = 2(9−8)+1 = 3)</text>
           </svg>
         </div>
       </div>
