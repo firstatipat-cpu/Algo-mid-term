@@ -45,7 +45,7 @@ document.getElementById('w6').innerHTML = String.raw`
           <div class="step-trace">
             <div class="step-trace-head">▶ ทำไมตรวจแค่คู่ข้างเคียงถึงพอ? + ตัวอย่าง</div>
             <div class="step-trace-body">
-              <div class="trace-row"><div class="trace-step">1</div><div><strong>Brute force</strong> ต้องเทียบทุกคู่ (i,j): A=[5,3,8,3] → 4×4 = 16 คู่ → O(n²)</div></div>
+              <div class="trace-row"><div class="trace-step">1</div><div><strong>Brute force</strong> ต้องเทียบทุกคู่ (i,j): A=[5,3,8,3] → n(n−1)/2 = 6 คู่ → O(n²)</div></div>
               <div class="trace-row"><div class="trace-step">2</div><div>แต่พอ <strong>sort แล้ว</strong>: [3,3,5,8] — ค่าที่เท่ากันต้อง<b>อยู่ติดกัน</b>เสมอ (ไม่มีตัวอื่นคั่นกลางได้)</div></div>
               <div class="trace-row"><div class="trace-step">3</div><div>ดังนั้นเทียบแค่ A[i] กับ A[i+1]: 3=3 → เจอซ้ำ → false. สแกน 1 รอบ = O(n) → รวม O(n log n)</div></div>
             </div>
@@ -118,7 +118,7 @@ i <span class="tok-op">←</span> <span class="tok-num">0</span>; modefrequency 
           <li><strong>Binary Exponentiation</strong> — แปลงเลขยกกำลังเป็นเลขฐานสอง ลดรอบการคูณ</li>
         </ul>
         <div style="margin-top:14px">
-          <div class="tag-row"><span class="badge badge-accent">Heap = ต้นไม้เต็มที่ root ใหญ่สุด (max-heap)</span></div>
+          <div class="tag-row"><span class="badge badge-accent">Heap = ต้นไม้ไบนารีสมบูรณ์ (complete) ที่ root ใหญ่สุด (max-heap)</span></div>
           <div style="text-align:center;margin-top:8px">
             <svg viewBox="0 0 260 134" style="max-width:300px;width:100%">
               <g stroke="var(--line)" stroke-width="1.5" fill="none">

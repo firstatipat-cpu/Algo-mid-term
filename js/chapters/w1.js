@@ -170,7 +170,7 @@ primes <span class="tok-op">←</span> [ ]
             <div class="trace-row"><div class="trace-step">2</div><div>p=2 → ตัดทวีคูณของ 2 ตั้งแต่ 2²=4: <span class="trace-code">4,6,8,…,30</span> ถูกตัด (2 เองยังอยู่)</div></div>
             <div class="trace-row"><div class="trace-step">3</div><div>p=3 (ยังไม่ถูกตัด) → ตัดทวีคูณของ 3 ตั้งแต่ 3²=9: <span class="trace-code">9,12,15,…,30</span></div></div>
             <div class="trace-row"><div class="trace-step">4</div><div>p=4 ถูกตัดแล้ว → ข้ามไป (a[4]=0) → p=5 → ตัดตั้งแต่ 25: <span class="trace-code">25,30</span></div></div>
-            <div class="trace-row"><div class="trace-step">5</div><div>p=6,7,… เหลือต่ำกว่า √30≈5.47 → หยุดได้ เพราะทวีคูณที่เหลือถูกตัดไปหมดแล้ว</div></div>
+            <div class="trace-row"><div class="trace-step">5</div><div>p=6,7,… ที่เหลือล้วนเกิน √30≈5.47 → <strong>หยุดได้</strong> เพราะทวีคูณของมันถูกตัดไปหมดแล้ว (วน p แค่ถึง √n)</div></div>
             <div class="trace-row"><div class="trace-step">6</div><div>เก็บค่าที่ยังไม่ถูกตัด: <span class="trace-code">2,3,5,7,11,13,17,19,23,29</span> ✓</div></div>
           </div>
         </div>
@@ -265,7 +265,7 @@ primes <span class="tok-op">←</span> [ ]
           <div class="mem-chip"><strong>Algorithm</strong>ชุดคำสั่งชัดเจน รับ Input → Output</div>
           <div class="mem-chip"><strong>6 คุณสมบัติ</strong>ชัดเจน, อินพุต/เอาต์พุตนิยาม, จบได้, ทำได้จริง, เป็นกลางภาษา</div>
           <div class="mem-chip"><strong>Euclid</strong>gcd = m mod n ซ้ำจน n = 0</div>
-          <div class="mem-chip"><strong>Sieve</strong>ตัดทวีคูณของ p ตั้งแต่ p² จนถึง √n</div>
+          <div class="mem-chip"><strong>Sieve</strong>วน p จนถึง √n แล้วตัดทวีคูณของ p ตั้งแต่ p² ถึง n</div>
           <div class="mem-chip"><strong>7 ประเภทปัญหา</strong>Sort · Search · String · Graph · Combinatorial · Geometric · Numerical</div>
           <div class="mem-chip"><strong>6 ขั้นตอน</strong>เข้าใจ → เลือกวิธี → ออกแบบ → พิสูจน์ → วิเคราะห์ → เขียนโค้ด</div>
         </div>

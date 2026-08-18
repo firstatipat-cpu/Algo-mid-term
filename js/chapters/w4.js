@@ -128,13 +128,13 @@ document.getElementById('w4').innerHTML = String.raw`
               <div class="trace-row"><div class="trace-step">2</div><div>ผลลัพธ์: <span class="trace-code">[2, 5, 4, 1]</span> — 2 ตัวแรกเรียงแล้ว</div></div>
               <div class="trace-row"><div class="trace-step">3</div><div><span class="trace-code">i=2</span> (ค่า <strong>4</strong>) → 5 &gt; 4 เลื่อน 5 → แทรก 4 ระหว่าง 2 กับ 5</div></div>
               <div class="trace-row"><div class="trace-step">4</div><div>ผลลัพธ์: <span class="trace-code">[2, 4, 5, 1]</span></div></div>
-              <div class="trace-row"><div class="trace-step">5</div><div><span class="trace-code">i=3</span> (ค่า <strong>1</strong>) → เลื่อน 5, 4, 2 ไปขวาหมด → วาง 1 ต้นสุดท้าย</div></div>
+              <div class="trace-row"><div class="trace-step">5</div><div><span class="trace-code">i=3</span> (ค่า <strong>1</strong>) → เลื่อน 5, 4, 2 ไปขวาหมด → วาง 1 ไว้หน้าสุด</div></div>
               <div class="trace-row"><div class="trace-step">6</div><div>เสร็จ: <span class="trace-code">[1, 2, 4, 5]</span> 🎉</div></div>
             </div>
           </div>
           <div class="callout callout-tip">
             <div class="callout-icon">i</div>
-            <div class="callout-body"><strong>จำ:</strong> Worst-case (ข้อมูลเรียงกลับด้าน) = Σ i = n(n+1)/2 ≈ <strong>O(n²)</strong> แต่ถ้าเรียงอยู่แล้ว = O(n)</div>
+            <div class="callout-body"><strong>จำ:</strong> Worst-case (ข้อมูลเรียงกลับด้าน) = Σ i (i=1…n−1) = n(n−1)/2 ≈ <strong>O(n²)</strong> แต่ถ้าเรียงอยู่แล้ว = O(n)</div>
           </div>
         </div>
       </div>
@@ -164,7 +164,7 @@ document.getElementById('w4').innerHTML = String.raw`
               <div class="step-trace-body">
                 <div class="trace-row"><div class="trace-step">1</div><div>เริ่ม <span class="trace-code">123</span> → หา i ตัวท้ายสุดที่ a[i] &lt; a[i+1]: 1&lt;2 ✓, 2&lt;3 ✓ → i = 1 (ค่า 2)</div></div>
                 <div class="trace-row"><div class="trace-step">2</div><div>หา j มากสุดที่ a[j] &gt; a[i]: j=2 (ค่า 3 &gt; 2) → สลับ → <span class="trace-code">132</span></div></div>
-                <div class="trace-row"><div class="trace-step">3</div><div>132 → i=0 (1&lt;3) → j=1 (3&gt;1) สลับ → <span class="trace-code">312</span> → reverse ส่วนหลัง → <span class="trace-code">213</span></div></div>
+                <div class="trace-row"><div class="trace-step">3</div><div>132 → i=0 (1&lt;3, 3&gt;2) → j=2 (ตัวขวาสุดที่ &gt;1 คือ 2) → สลับ → <span class="trace-code">231</span> → reverse ส่วนหลัง (หลังตำแหน่ง i) → <span class="trace-code">213</span></div></div>
                 <div class="trace-row"><div class="trace-step">4</div><div>ลำดับ: 123 → 132 → 213 → 231 → 312 → 321 — เรียงตามพจนานุกรม</div></div>
               </div>
             </div>
@@ -198,7 +198,7 @@ document.getElementById('w4').innerHTML = String.raw`
                 <div class="trace-row"><div class="trace-step">1</div><div>แบ่ง 9 เหรียญเป็น 2 กองๆ ละ 4 + เหลือ 1</div></div>
                 <div class="trace-row"><div class="trace-step">2</div><div>ชั่งกองซ้าย-ขวา: ฝั่งเบากว่า → เหรียญปลอมอยู่กองนั้น (เสมอกัน → ตัวที่เหลือคือปลอม)</div></div>
                 <div class="trace-row"><div class="trace-step">3</div><div>ทิ้งฝั่งหนัก → เหลือ 4 เหรียญ → แบ่ง 2+2 ชั่ง → เหลือ 2 → ชั่ง 1+1 จบ</div></div>
-                <div class="trace-row"><div class="trace-step">4</div><div>ชั่ง ⌈log₂9⌉ = <strong>4 ครั้ง</strong> — ใช้ได้เมื่อรู้ว่าเหรียญปลอม"เบากว่า"</div></div>
+                <div class="trace-row"><div class="trace-step">4</div><div>วิธีแบ่ง 2 กอง (4v4+1) ชั่งอย่างมาก <strong>3 ครั้ง</strong> (1+1 พอเสมอ → ตัวที่เหลือคือปลอม ใช้แค่ครั้งเดียว) — แต่ถ้าแบ่งเป็น <strong>3 กอง 3v3v3</strong> จะใช้แค่ ⌈log₃9⌉ = <strong>2 ครั้ง</strong></div></div>
               </div>
             </div>
           </div>
@@ -281,7 +281,7 @@ document.getElementById('w4').innerHTML = String.raw`
             <div class="step-trace">
               <div class="step-trace-body">
                 <div class="trace-row"><div class="trace-step">1</div><div><strong>Partition</strong> = เลือก pivot แล้วจัดให้ตัวเล็กกว่าอยู่ซ้าย ตัวใหญ่กว่าอยู่ขวา (เช่น pivot=5 ใน [7,1,5,3,9] → [1,3]<strong>5</strong>[7,9])</div></div>
-                <div class="trace-row"><div class="trace-step">2</div><div>pivot อยู่ตำแหน่งที่ 2 → ถ้าต้องการ k=3 → เดินเข้าไปเฉพาะซีกขวา (ละซ้ายไปเลย)</div></div>
+                <div class="trace-row"><div class="trace-step">2</div><div>pivot อยู่ตำแหน่งที่ 3 (1-based) → ถ้าต้องการ k=3 → <strong>หยุดเลย</strong> 5 คือคำตอบ · ถ้า k&gt;3 → เดินเข้าเฉพาะซีกขวา · ถ้า k&lt;3 → ไปซ้าย</div></div>
                 <div class="trace-row"><div class="trace-step">3</div><div>งานรวม = n + n/2 + n/4 + … = 2n → <strong>Θ(n)</strong> โดยเฉลี่ย</div></div>
               </div>
             </div>

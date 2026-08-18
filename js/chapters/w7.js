@@ -62,10 +62,10 @@ document.getElementById('w7').innerHTML = String.raw`
         <div class="step-trace">
           <div class="step-trace-head">▶ ตัวอย่าง A = [5, 2, 3, 2, 5] ช่วง [2,5]</div>
           <div class="step-trace-body">
-            <div class="trace-row"><div class="trace-step">1</div><div><strong>นับความถี่</strong>: D = [2:1, 3:1, 4:0, 5:2] → D = [1,1,0,2]</div></div>
-            <div class="trace-row"><div class="trace-step">2</div><div><strong>สะสม</strong>: D = [1, 2, 2, 4] — D[j] = "จำนวนตัวที่มีค่า ≤ j+l" (เช่น ≤3 มี 2 ตัว)</div></div>
+            <div class="trace-row"><div class="trace-step">1</div><div><strong>นับความถี่</strong>: D = [2:2, 3:1, 4:0, 5:2] → D = [2,1,0,2]</div></div>
+            <div class="trace-row"><div class="trace-step">2</div><div><strong>สะสม</strong>: D = [2, 3, 3, 5] — D[j] = "จำนวนตัวที่มีค่า ≤ j+l" (เช่น ≤2 มี 2 ตัว, ≤5 มี 5 ตัว)</div></div>
             <div class="trace-row"><div class="trace-step">3</div><div><strong>วางจากขวาไปซ้าย</strong> (ทำไมขวาไปซ้าย? → เพื่อความ <strong>stable</strong> ตัวที่อยู่ขวาใน A เดิมไปอยู่ขวาในผลลัพธ์)</div></div>
-            <div class="trace-row"><div class="trace-step">4</div><div>i=4 (5): ตำแหน่ง D[3]−1=3 → S[3]=5, D[3]=3 · i=3 (2): D[0]−1=0 → S[0]=2 …</div></div>
+            <div class="trace-row"><div class="trace-step">4</div><div>i=4 (5): D[3]−1=4 → S[4]=5, D[3]=4 · i=3 (2): D[0]−1=1 → S[1]=2, D[0]=1 …</div></div>
             <div class="trace-row"><div class="trace-step">5</div><div>ผลลัพธ์ S = [2, 2, 3, 5, 5] ✅ <strong>O(n)</strong> เร็วกว่าเปรียบเทียบ — แต่เสียพื้นที่ O(u−l) และใช้ได้เฉพาะค่าช่วงแคบ</div></div>
           </div>
         </div>
@@ -73,10 +73,11 @@ document.getElementById('w7').innerHTML = String.raw`
           <div style="font-weight:700;color:var(--accent);font-family:'Fraunces',serif;margin-bottom:8px">มองเป็นตาราง 3 แถว — เห็นที่มาของ stable</div>
           <div class="dc-table">
             <div class="dc-row"><span class="dc-head">A</span><span class="dc-cell">5</span><span class="dc-cell">2</span><span class="dc-cell">3</span><span class="dc-cell">2</span><span class="dc-cell">5</span></div>
-            <div class="dc-row"><span class="dc-head">D สะสม</span><span class="dc-cell">1</span><span class="dc-cell">2</span><span class="dc-cell">2</span><span class="dc-cell">4</span><span class="dc-cell">—</span></div>
+            <div class="dc-row"><span class="dc-head">ค่า</span><span class="dc-cell">2</span><span class="dc-cell">3</span><span class="dc-cell">4</span><span class="dc-cell">5</span></div>
+            <div class="dc-row"><span class="dc-head">D สะสม</span><span class="dc-cell">2</span><span class="dc-cell">3</span><span class="dc-cell">3</span><span class="dc-cell">5</span></div>
             <div class="dc-row"><span class="dc-head">S</span><span class="dc-cell dc-s1">2</span><span class="dc-cell dc-s1">2</span><span class="dc-cell dc-s2">3</span><span class="dc-cell dc-s3">5</span><span class="dc-cell dc-s3">5</span></div>
           </div>
-          <div style="font-size:12px;color:var(--muted);margin-top:6px">อ่าน S จาก D: D = [1,2,2,4] แปลว่า "≤2 มี 1 ตัว, ≤3 มี 2 ตัว, ≤4 มี 2 ตัว, ≤5 มี 4 ตัว" → วาง 5 ตัวหลังก่อน (ขวาไปซ้าย) จึงได้ 5 สองตัวรักษาลำดับเดิม</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:6px">อ่าน S จาก D: D สะสม = [2,3,3,5] แปลว่า "≤2 มี 2 ตัว, ≤3 มี 3 ตัว, ≤5 มี 5 ตัว" → วาง 5 ตัวหลังก่อน (ขวาไปซ้าย) จึงได้ 5 สองตัวรักษาลำดับเดิม</div>
         </div>
       </div>
 
@@ -199,9 +200,9 @@ document.getElementById('w7').innerHTML = String.raw`
         </div>
         <div class="step-trace">
           <div class="step-trace-body">
-            <div class="trace-row"><div class="trace-step">1</div><div>B-tree (ดีกรี 3) มี Key 2-3 ตัว/โหนด ลูกได้ 3-4 โหนด — Root มี 2 keys: [20 | 40]</div></div>
+            <div class="trace-row"><div class="trace-step">1</div><div>B-tree (2-3-4 tree) มี Key 2-3 ตัว/โหนด ลูกได้ 3-4 โหนด — Root มี 2 keys: [20 | 40]</div></div>
             <div class="trace-row"><div class="trace-step">2</div><div>ค้นหา 35: 35 อยู่ระหว่าง 20 กับ 40 → เดินลงลูกกลาง → เจอ [30 | 35 | 38] → <strong>1 โหลด = รู้ผลทั้งช่อง</strong></div></div>
-            <div class="trace-row"><div class="trace-step">3</div><div>ต้นไม้ height 3 จุ key ได้หลายแสน — ต่างจาก BST ที่เก็บ 1 key/โหนด ต้องโหลด disk หลายครั้ง</div></div>
+            <div class="trace-row"><div class="trace-step">3</div><div>ต้นไม้ height 3 จุ key ได้เป็นร้อย (ต่างจาก BST ที่ height 3 จุได้แค่ 7) — กับโหนดใหญ่ ๆ จริงได้หลักล้าน → ลดจำนวน disk I/O</div></div>
           </div>
         </div>
         <svg viewBox="0 0 420 120" style="width:100%;max-width:460px;margin:8px auto;display:block"><g stroke="var(--line)" stroke-width="1.5"><rect x="150" y="8" width="120" height="28" rx="4" fill="var(--bg-alt)" stroke="var(--primary)" stroke-width="2"/><rect x="30" y="72" width="100" height="28" rx="4" fill="var(--bg-alt)"/><rect x="160" y="72" width="100" height="28" rx="4" fill="var(--bg-alt)" stroke="var(--accent)" stroke-width="2"/><rect x="290" y="72" width="100" height="28" rx="4" fill="var(--bg-alt)"/></g><g stroke="var(--line)" stroke-width="1.5"><line x1="185" y1="36" x2="85" y2="72"/><line x1="195" y1="36" x2="200" y2="72"/><line x1="225" y1="36" x2="330" y2="72"/></g><text x="210" y="26" text-anchor="middle" font-size="12" font-family="JetBrains Mono" fill="var(--ink)" font-weight="bold">20 40</text><text x="80" y="90" text-anchor="middle" font-size="11" font-family="JetBrains Mono" fill="var(--ink)">&lt;20</text><text x="210" y="90" text-anchor="middle" font-size="11" font-family="JetBrains Mono" fill="var(--accent)" font-weight="bold">30 35 38</text><text x="340" y="90" text-anchor="middle" font-size="11" font-family="JetBrains Mono" fill="var(--ink)">&gt;40</text><text x="150" y="118" text-anchor="middle" font-size="10" fill="var(--muted)">แต่ละโหนด = 1 block · หา 35 ใช้ disk อ่านเพียง 2 ครั้ง</text></svg>

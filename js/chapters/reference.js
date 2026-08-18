@@ -131,7 +131,7 @@ Algorithm Design Techniques
             <tr><td>Sieve (prime ≤ n)</td><td>—</td><td>—</td><td>Θ(n log log n)</td><td>O(n)</td><td>Brute-ish</td></tr>
             <tr><td>TSP (exhaustive)</td><td>—</td><td>O(n!)</td><td>O(n!)</td><td>O(n)</td><td>Brute</td></tr>
             <tr><td>Knapsack (subset)</td><td>—</td><td>O(2ⁿ)</td><td>O(2ⁿ)</td><td>O(n)</td><td>Brute</td></tr>
-            <tr><td>Horspool / Boyer-Moore</td><td>O(n)</td><td>O(n)~O(nm)</td><td>O(nm)</td><td>O(m)</td><td>Space-Time</td></tr>
+            <tr><td>Horspool / Boyer-Moore</td><td>O(n)</td><td>O(n)</td><td>O(nm)</td><td>O(m)</td><td>Space-Time</td></tr>
             <tr><td>BST Search</td><td>O(1)</td><td>O(log n)</td><td>O(n)</td><td>O(1)</td><td>Variable-size</td></tr>
             <tr><td>Hash (chaining)</td><td>O(1)</td><td>O(1)</td><td>O(n)</td><td>O(n)</td><td>Space-Time</td></tr>
             <tr><td>Gaussian</td><td>—</td><td>Θ(n³)</td><td>Θ(n³)</td><td>O(n²)</td><td>Transform</td></tr>
