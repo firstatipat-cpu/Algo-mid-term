@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Algorithm Atlas - ทุกบท · ทุกอัลกอริทึม</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,700;9..144,900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Noto+Serif+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/algo.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<header class="topbar">
+  <a href="#top" class="brand">
+    <div class="brand-mark">◉</div>
+    <span>Algorithm Atlas</span>
+  </a>
+  <div class="topbar-actions">
+    <button class="icon-btn" id="searchBtn" title="ค้นหา">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+    </button>
+    <button class="icon-btn" id="printBtn" title="พิมพ์">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7"/><rect x="6" y="14" width="12" height="8"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/></svg>
+    </button>
+    <button class="icon-btn" id="themeBtn" title="สลับธีม">
+      <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="app">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="nav-label">Overview</div>
+    <a class="nav-item" data-target="hero"><span class="nav-num">◉</span> ภาพรวม</a>
+
+    <div class="nav-label">Weeks</div>
+    <a class="nav-item" data-target="w1"><span class="nav-num">01</span> Introduction<span class="nav-gloss">นิยาม · สมบัติ · Euclid · Sieve</span></a>
+    <a class="nav-item" data-target="w2"><span class="nav-num">02</span> Efficiency Analysis<span class="nav-gloss">O/Ω/Θ · Basic Op · Recurrence</span></a>
+    <a class="nav-item" data-target="w3"><span class="nav-num">03</span> Brute Force<span class="nav-gloss">Exhaustive · Bubble · String</span></a>
+    <a class="nav-item" data-target="w4"><span class="nav-num">04</span> Decrease & Conquer<span class="nav-gloss">BS · Quickselect · Josephus</span></a>
+    <a class="nav-item" data-target="w5"><span class="nav-num">05</span> Divide & Conquer<span class="nav-gloss">Merge/Quick · Master Theorem</span></a>
+    <a class="nav-item" data-target="w6"><span class="nav-num">06</span> Transform & Conquer<span class="nav-gloss">Presort · Gaussian · Horner</span></a>
+    <a class="nav-item" data-target="w7"><span class="nav-num">07</span> Space-Time Trade-off<span class="nav-gloss">Hashing · Horspool · B-Tree</span></a>
+
+    <div class="nav-label">Practice</div>
+    <a class="nav-item" data-target="ss"><span class="nav-num">S</span> State Space Search</a>
+    <a class="nav-item" data-target="quiz"><span class="nav-num">Q</span> แบบฝึกหัด</a>
+    <a class="nav-item" data-target="reference"><span class="nav-num">§</span> สรุปสูตร</a>
+    <a class="nav-item nav-item-cheat" data-target="reference"><span class="nav-num">★</span> Cheat Sheet หน้าเดียว</a>
+  </aside>
+
+  <main class="main" id="top">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+      <div class="hero-eyebrow">Algorithm Course · 7 บท · สอบกลางภาค</div>
+      <h1>
+        Algorithm<br>
+        <span class="accent">Atlas</span>
+      </h1>
+      <p class="hero-sub">
+        สรุปเนื้อหาอัลกอริทึมครบทั้ง 7 บท พร้อมภาพเคลื่อนไหวแบบโต้ตอบ ตัวอย่างโค้ดจริง และแบบฝึกหัดพร้อมเฉลย - ทำความเข้าใจทุกอัลกอริทึมสำคัญด้วย JavaScript
+      </p>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">07</div><div class="stat-label">Weeks</div></div>
+        <div class="stat"><div class="stat-num">25+</div><div class="stat-label">Algorithms</div></div>
+        <div class="stat"><div class="stat-num">13</div><div class="stat-label">Interactive</div></div>
+        <div class="stat"><div class="stat-num" id="heroQuizCount">74</div><div class="stat-label">Quiz Items</div></div>
+      </div>
+      <div class="hero-cta">
+        <button class="btn btn-accent" data-target="w1" style="font-size:15px;padding:14px 28px">เริ่มเรียนตั้งแต่บทที่ 1 →</button>
+        <button class="btn" data-target="reference" style="font-size:15px;padding:14px 28px">ข้ามไป Cheat Sheet ★</button>
+        <span class="hero-cta-hint">แนะนำเส้นทาง: อ่าน 7 บทตามลำดับ → เล่น Interactive → ทำแบบฝึกหัด (กรองตามสัปดาห์ / ทบทวนข้อที่ผิดได้)</span>
+      </div>
+      <svg class="hero-deco" viewBox="0 0 280 280">
+        <defs>
+          <linearGradient id="hg1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#0E4F49"/>
+            <stop offset="1" stop-color="#C2410C"/>
+          </linearGradient>
+        </defs>
+        <g stroke="url(#hg1)" stroke-width="1.2" fill="none" opacity="0.7">
+          <circle cx="140" cy="140" r="40"/>
+          <circle cx="140" cy="140" r="70"/>
+          <circle cx="140" cy="140" r="100"/>
+          <line x1="40" y1="140" x2="240" y2="140"/>
+          <line x1="140" y1="40" x2="140" y2="240"/>
+          <line x1="70" y1="70" x2="210" y2="210"/>
+          <line x1="210" y1="70" x2="70" y2="210"/>
+        </g>
+        <g fill="#C2410C" opacity="0.8">
+          <circle cx="140" cy="40" r="4"/>
+          <circle cx="240" cy="140" r="4"/>
+          <circle cx="140" cy="240" r="4"/>
+          <circle cx="40" cy="140" r="4"/>
+          <circle cx="210" cy="70" r="3"/>
+          <circle cx="70" cy="210" r="3"/>
+        </g>
+      </svg>
+    </section>
+
+    <!-- ===== TOC ===== -->
+    <div class="toc">
+      <a class="toc-card" data-target="w1">
+        <div class="toc-card-num">Week 01</div>
+        <div class="toc-card-title">Introduction to Algorithms</div>
+        <div class="toc-card-meta">Euclid · Sieve · Problem Types</div>
+      </a>
+      <a class="toc-card" data-target="w2">
+        <div class="toc-card-num">Week 02</div>
+        <div class="toc-card-title">Efficiency Analysis</div>
+        <div class="toc-card-meta">Big-O · Omega · Theta</div>
+      </a>
+      <a class="toc-card" data-target="w3">
+        <div class="toc-card-num">Week 03</div>
+        <div class="toc-card-title">Brute Force</div>
+        <div class="toc-card-meta">Bubble · Selection · TSP</div>
+      </a>
+      <a class="toc-card" data-target="w4">
+        <div class="toc-card-num">Week 04</div>
+        <div class="toc-card-title">Decrease & Conquer</div>
+        <div class="toc-card-meta">Binary Search · Insertion</div>
+      </a>
+      <a class="toc-card" data-target="w5">
+        <div class="toc-card-num">Week 05</div>
+        <div class="toc-card-title">Divide & Conquer</div>
+        <div class="toc-card-meta">Merge · Quick · Strassen</div>
+      </a>
+      <a class="toc-card" data-target="w6">
+        <div class="toc-card-num">Week 06</div>
+        <div class="toc-card-title">Transform & Conquer</div>
+        <div class="toc-card-meta">Presort · Heap · Horner</div>
+      </a>
+      <a class="toc-card" data-target="w7">
+        <div class="toc-card-num">Week 07</div>
+        <div class="toc-card-title">Space-Time Trade-off</div>
+        <div class="toc-card-meta">Hashing · Horspool · B-Tree</div>
+      </a>
+      <a class="toc-card" data-target="ss">
+        <div class="toc-card-num">Bonus</div>
+        <div class="toc-card-title">State Space Search</div>
+        <div class="toc-card-meta">Missionaries · Water Jug · River</div>
+      </a>
+      <a class="toc-card" data-target="quiz">
+        <div class="toc-card-num">Practice</div>
+        <div class="toc-card-title">แบบฝึกหัด</div>
+        <div class="toc-card-meta"><span id="tocQuizCount">74</span> ข้อ · ทบทวนทั้งหมด</div>
+      </a>
+    </div>
+
+    <!-- ===== CHAPTERS (injected by js/chapters/*.js) ===== -->
+    <section class="section" id="w1"></section>
+    <section class="section" id="w2"></section>
+    <section class="section" id="w3"></section>
+    <section class="section" id="w4"></section>
+    <section class="section" id="w5"></section>
+    <section class="section" id="w6"></section>
+    <section class="section" id="w7"></section>
+
+    <!-- ===== STATE SPACE SEARCH (injected by js/chapters/ss.js) ===== -->
+    <section class="section" id="ss"></section>
+
+    <!-- ===== QUIZ ===== -->
+    <section class="section" id="quiz">
+      <div class="section-head">
+        <div class="section-num">Practice</div>
+        <h2 class="section-title">แบบฝึกหัด</h2>
+        <div class="section-meta"><span id="quizMetaCount">74</span> ข้อ · ทบทวนทั้งหมด</div>
+      </div>
+
+      <div class="quiz-score">
+        <div>
+          <div class="quiz-score-label">คะแนนของคุณ</div>
+          <div class="quiz-score-num"><span id="scoreNum">0</span><span id="quizTotal" style="font-size:24px;opacity:0.6">/74</span><span id="scorePct" style="font-size:14px;opacity:0.6;margin-left:8px"></span></div>
+        </div>
+        <div style="text-align:right">
+          <div class="quiz-score-label">คำตอบแล้ว · <span id="quizTimerDisplay" style="color:var(--accent);font-family:'JetBrains Mono',monospace"></span></div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:14px;margin-top:4px"><span id="answeredNum">0</span> ข้อ</div>
+        </div>
+      </div>
+
+      <div class="quiz-week-score" id="quizWeekScore"></div>
+
+      <div class="quiz-filters" id="quizFilters"></div>
+
+      <div id="quizContainer"></div>
+
+      <div style="display:flex;gap:12px;margin-top:24px">
+        <button class="btn btn-primary" id="quizReset">↻ เริ่มใหม่</button>
+        <button class="btn" id="quizReveal">เฉลยทั้งหมด</button>
+      </div>
+    </section>
+
+    <!-- ===== REFERENCE (injected by js/chapters/reference.js) ===== -->
+    <section class="section" id="reference"></section>
+
+    <footer class="footer">
+      <div>
+        <div class="footer-brand">Algorithm Atlas</div>
+        <div>สรุปเนื้อหา 7 บท · พร้อมแบบฝึกหัด · สำหรับสอบกลางภาค</div>
+      </div>
+      <div style="text-align:right">
+        <div>สร้างด้วย HTML · CSS · JavaScript · KaTeX + Chart.js</div>
+        <div style="margin-top:4px;color:var(--muted)">ใช้ <span class="kbd">↑</span> <span class="kbd">↓</span> เลื่อนระหว่างบทได้</div>
+      </div>
+    </footer>
+
+  </main>
+</div>
+
+<script src="js/quiz-data.js"></script>
+<script src="js/chapters/w1.js"></script>
+<script src="js/chapters/w2.js"></script>
+<script src="js/chapters/w3.js"></script>
+<script src="js/chapters/w4.js"></script>
+<script src="js/chapters/w5.js"></script>
+<script src="js/chapters/w6.js"></script>
+<script src="js/chapters/w7.js"></script>
+<script src="js/chapters/ss.js"></script>
+<script src="js/chapters/reference.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
