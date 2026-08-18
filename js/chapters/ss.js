@@ -349,9 +349,9 @@ p3Layout(p3StatesAll.filter(s => s[0] === 1), 520);
 const p3Map = new Set(p3StatesAll.map(ssKey));
 const nb3 = s => p3Nb(...s).filter(e => p3Map.has(ssKey(e[0])));
 function ssP3Node(s, x, y, color) {
-  const E = ['🧑', '🐺', '🐑', '🐕'];
-  const left = s.map((v, i) => v === 0 ? E[i] : '').join('');
-  const right = s.map((v, i) => v === 1 ? E[i] : '').join('');
+  const E = ['F', 'W', 'G', 'D'];
+  const left = s.map((v, i) => v === 0 ? E[i] : '').join(' ');
+  const right = s.map((v, i) => v === 1 ? E[i] : '').join(' ');
   return '<text x="' + x + '" y="' + (y - 2) + '" text-anchor="middle" font-size="13" font-weight="bold" fill="' + color + '" pointer-events="none">' + (left || '·') + '</text>' +
     '<text x="' + x + '" y="' + (y + 14) + '" text-anchor="middle" font-size="13" font-weight="bold" fill="' + color + '" opacity="0.9" pointer-events="none">' + (right || '·') + '</text>';
 }
