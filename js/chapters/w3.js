@@ -225,6 +225,37 @@ d <span class="tok-op">←</span> ∞
       </div>
 
       <div class="card">
+        <h3 class="card-title">Convex Hull (Brute Force)</h3>
+        <p class="card-lead">ลากเส้นขอบรอบจุดทั้งหมดให้เป็น polygon นูนที่ครอบทุกจุด — ใช้เส้นที่ทุกจุดอื่นอยู่ข้างเดียวกันหมด <span class="badge badge-rose">O(n³)</span></p>
+        <div class="grid-2">
+          <div>
+            <svg viewBox="0 0 200 200" style="width:100%;max-width:260px;margin:0 auto;display:block"><g stroke="var(--line)" stroke-width="1.5"><path d="M20 180 L20 20 L180 20 L180 180 Z" fill="none" stroke="var(--primary)"/></g><g fill="var(--primary)" stroke="var(--primary)"><circle cx="20" cy="180" r="6"/><circle cx="20" cy="20" r="6"/><circle cx="180" cy="20" r="6"/><circle cx="180" cy="180" r="6"/></g><circle cx="100" cy="100" r="6" fill="var(--gold)" stroke="var(--gold)"/><g fill="var(--ink-2)" font-size="10" font-weight="bold"><text x="10" y="195">A(0,0)</text><text x="10" y="16">B(0,4)</text><text x="186" y="16">C(4,4)</text><text x="186" y="195">D(4,0)</text><text x="106" y="104">E(2,2)</text></g></svg>
+            <div style="font-size:12px;color:var(--muted);margin-top:6px;text-align:center">จุด A,B,C,D อยู่บนขอบ · E(2,2) อยู่ภายใน → ไม่เป็นขอบ</div>
+          </div>
+          <div>
+            <div class="step-trace">
+              <div class="step-trace-head">▶ วิธีเช็คว่าเส้นเป็นขอบฮัลล์หรือไม่</div>
+              <div class="step-trace-body">
+                <div class="trace-row"><div class="trace-step">1</div><div>คู่ (0,0)-(0,4): จุดอื่น (4,0),(4,4),(2,2) อยู่ฝั่งเดียวกันหมด (x&gt;0) → <strong>ขอบ ✓</strong></div></div>
+                <div class="trace-row"><div class="trace-step">2</div><div>คู่ (0,0)-(4,4) (เส้นทแยง): จุด (0,4) อยู่ฝั่งหนึ่ง แต่ (4,0) อยู่อีกฝั่ง → <strong>ไม่ใช่ขอบ ✗</strong></div></div>
+                <div class="trace-row"><div class="trace-step">3</div><div>เช็คทุกคู่ C(n,2) เส้น × ตรวจทิศทุกจุดที่เหลือ (≤n) → <strong>O(n³)</strong></div></div>
+              </div>
+            </div>
+            <div class="code-block" style="margin-top:10px">
+              <div class="code-head"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">Pseudocode</div></div>
+              <div class="code-body"><pre><span class="tok-key">ALGORITHM</span> <span class="tok-fn">BruteForceConvexHull</span>(P)
+<span class="tok-key">for</span> every pair (pᵢ, pⱼ) <span class="tok-key">of</span> points <span class="tok-key">in</span> P <span class="tok-key">do</span>
+    <span class="tok-key">if</span> จุดอื่นทุกจุดอยู่ข้างเดียวกัน
+        <span class="tok-key">of</span> เส้นตรงที่ผ่าน pᵢ กับ pⱼ:
+        <span class="tok-key">add</span> (pᵢ, pⱼ) เข้า <span class="tok-fn">hull</span>
+<span class="tok-key">return</span> hull</pre></div>
+            </div>
+          </div>
+        </div>
+        <div style="font-size:12px;color:var(--muted);margin-top:8px">เช็ค "ฝั่งเดียวกัน" ด้วย <strong>cross product</strong>: sign((xⱼ−xᵢ)(yₖ−yᵢ) − (yⱼ−yᵢ)(xₖ−xᵢ)) เท่ากันทุกจุด k → ขอบ. (Levitin §3.3)</div>
+      </div>
+
+      <div class="card">
         <h3 class="card-title">Exhaustive Search — ค้นทุกเส้นทางที่เป็นไปได้</h3>
         <p class="card-lead">แตกยอดมาจาก Brute Force ใช้กับปัญหา Combinatorial — ต้องค้นหาหรือลองทุกเส้นทางที่เป็นไปได้ทั้งหมด เพื่อหาคำตอบที่ดีที่สุด</p>
         <div class="grid-3">

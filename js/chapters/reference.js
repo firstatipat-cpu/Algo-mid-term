@@ -26,6 +26,11 @@ document.getElementById('reference').innerHTML = String.raw`
             <tr><td>Vertex / Edge</td><td>จุด / เส้นเชื่อมในกราฟ</td></tr>
             <tr><td>Stable sort</td><td>ข้อมูลค่าเท่ากันรักษาลำดับเดิมไว้</td></tr>
             <tr><td>Basic Op. ↔ Complexity</td><td>C(n) = จำนวน basic op → T(n) ≈ c_op × C(n)</td></tr>
+            <tr><td>Big-O / Ω / Θ</td><td>O = ขอบบน (≤) · Ω = ขอบล่าง (≥) · Θ = ทั้งสอง (≈) ของเวลาทำงาน</td></tr>
+            <tr><td>Master Theorem</td><td>T(n)=aT(n/b)+f(n) แก้ recurrence แบบ divide-and-conquer 3 กรณี</td></tr>
+            <tr><td>Heap</td><td>ต้นไม้ไบนารีสมบูรณ์ที่ทุกโหนด ≥ ลูก (max-heap)</td></tr>
+            <tr><td>Sentinel</td><td>ค่าตั้งไว้ปลาย array เพื่อเลี่ยงเช็คขอบในลูป</td></tr>
+            <tr><td>Convex Hull</td><td>polygon นูนที่ครอบจุดทั้งหมด — ขอบ = เส้นที่ทุกจุดอื่นอยู่ข้างเดียวกัน</td></tr>
           </tbody>
         </table>
       </div>
@@ -126,11 +131,16 @@ Algorithm Design Techniques
             <tr><td>Quicksort</td><td>O(n log n)</td><td>O(n log n)</td><td>O(n²)</td><td>O(log n)</td><td>Divide</td></tr>
             <tr><td>Heapsort</td><td>Θ(n log n)</td><td>Θ(n log n)</td><td>Θ(n log n)</td><td>O(1)</td><td>Transform</td></tr>
             <tr><td>Counting Sort</td><td>Θ(n+k)</td><td>Θ(n+k)</td><td>Θ(n+k)</td><td>O(n+k)</td><td>Space-Time</td></tr>
+            <tr><td>Comparison Counting Sort</td><td>Θ(n²)</td><td>Θ(n²)</td><td>Θ(n²)</td><td>O(n)</td><td>Space-Time</td></tr>
             <tr><td>Strassen Matrix</td><td>—</td><td>Θ(n^2.807)</td><td>Θ(n^2.807)</td><td>O(n²)</td><td>Divide</td></tr>
             <tr><td>Euclid GCD</td><td>Θ(log n)</td><td>—</td><td>Θ(log n)</td><td>O(1)</td><td>Decrease</td></tr>
             <tr><td>Sieve (prime ≤ n)</td><td>—</td><td>—</td><td>Θ(n log log n)</td><td>O(n)</td><td>Brute-ish</td></tr>
             <tr><td>TSP (exhaustive)</td><td>—</td><td>O(n!)</td><td>O(n!)</td><td>O(n)</td><td>Brute</td></tr>
             <tr><td>Knapsack (subset)</td><td>—</td><td>O(2ⁿ)</td><td>O(2ⁿ)</td><td>O(n)</td><td>Brute</td></tr>
+            <tr><td>Assignment (exhaustive)</td><td>—</td><td>O(n!)</td><td>O(n!)</td><td>O(n²)</td><td>Brute</td></tr>
+            <tr><td>Closest-Pair</td><td>—</td><td>O(n²)</td><td>O(n²)</td><td>O(1)</td><td>Brute</td></tr>
+            <tr><td>Convex Hull (brute)</td><td>—</td><td>O(n³)</td><td>O(n³)</td><td>O(n)</td><td>Brute</td></tr>
+            <tr><td>DFS / BFS</td><td>—</td><td>Θ(V+E)</td><td>Θ(V+E)</td><td>O(V)</td><td>Search</td></tr>
             <tr><td>Horspool / Boyer-Moore</td><td>O(n)</td><td>O(n)</td><td>O(nm)</td><td>O(m)</td><td>Space-Time</td></tr>
             <tr><td>BST Search</td><td>O(1)</td><td>O(log n)</td><td>O(n)</td><td>O(1)</td><td>Variable-size</td></tr>
             <tr><td>Hash (chaining)</td><td>O(1)</td><td>O(1)</td><td>O(n)</td><td>O(n)</td><td>Space-Time</td></tr>

@@ -255,6 +255,7 @@ function renderBars(highlights = {}) {
   sortArray.forEach((val, i) => {
     const bar = document.createElement('div');
     bar.className = 'bar';
+    bar.title = val;
     bar.style.height = (val / maxVal * 100) + '%';
     if (highlights.comparing && (i === highlights.comparing[0] || i === highlights.comparing[1])) {
       bar.classList.add('comparing');
@@ -1235,6 +1236,8 @@ function horStep() {
 }
 document.getElementById('horStep').addEventListener('click', horStep);
 document.getElementById('horReset').addEventListener('click', horInit);
+document.getElementById('horCoeffs').addEventListener('input', horInit);
+document.getElementById('horX').addEventListener('input', horInit);
 horInit();
 
 /* ============================================

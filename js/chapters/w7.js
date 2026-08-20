@@ -27,7 +27,29 @@ document.getElementById('w7').innerHTML = String.raw`
         <div class="grid-2">
           <div>
             <div class="tag-row"><span class="badge badge-primary">Comparison Counting</span></div>
-            <p style="font-size:13px;color:var(--ink-2);margin:8px 0">นับจำนวนตัวที่น้อยกว่าค่าปัจจุบัน แล้วนำผลรวมไปเป็น Index</p>
+            <p style="font-size:13px;color:var(--ink-2);margin:8px 0">นับจำนวนตัวที่น้อยกว่าค่าปัจจุบัน แล้วนำผลรวมไปเป็น Index — ไม่ต้องเปรียบเทียบเพื่อสลับ ใช้พื้นที่ช่วย O(n)</p>
+            <div class="code-block">
+              <div class="code-head"><div class="code-dots"><span></span><span></span><span></span></div><div class="code-lang">Python</div></div>
+              <div class="code-body"><pre><span class="tok-key">def</span> <span class="tok-fn">comparison_count</span>(A):
+    n <span class="tok-op">=</span> len(A)
+    Count <span class="tok-op">=</span> [<span class="tok-num">0</span>] <span class="tok-op">*</span> n
+    <span class="tok-key">for</span> i <span class="tok-key">in</span> range(n <span class="tok-op">-</span> <span class="tok-num">1</span>):              <span class="tok-com"># เทียบทุกคู่ (i,j)</span>
+        <span class="tok-key">for</span> j <span class="tok-key">in</span> range(i <span class="tok-op">+</span> <span class="tok-num">1</span>, n):
+            <span class="tok-key">if</span> A[i] <span class="tok-op">&lt;</span> A[j]: Count[j] <span class="tok-op">+=</span> <span class="tok-num">1</span>  <span class="tok-com"># ตัวใหญ่กว่าได้แต้ม</span>
+            <span class="tok-key">else</span>:       Count[i] <span class="tok-op">+=</span> <span class="tok-num">1</span>
+    S <span class="tok-op">=</span> [<span class="tok-num">0</span>] <span class="tok-op">*</span> n
+    <span class="tok-key">for</span> i <span class="tok-key">in</span> range(n):
+        S[Count[i]] <span class="tok-op">=</span> A[i]               <span class="tok-com"># Count[i] = ตำแหน่งสุดท้ายของ A[i]</span>
+    <span class="tok-key">return</span> S</pre></div>
+            </div>
+            <div class="step-trace" style="margin-top:10px">
+              <div class="step-trace-head">▶ A = [7, 3, 7, 1, 7]</div>
+              <div class="step-trace-body">
+                <div class="trace-row"><div class="trace-step">1</div><div>เทียบทุกคู่ → นับว่า "มีกี่ตัวที่ ≤ ฉัน": 7 → 4, 3 → 1, 7 → 3, 1 → 0, 7 → 2 → Count = [4, 1, 3, 0, 2]</div></div>
+                <div class="trace-row"><div class="trace-step">2</div><div>วางลงตำแหน่ง: S[4]=7 · S[1]=3 · S[3]=7 · S[0]=1 · S[2]=7 → S = [1, 3, 7, 7, 7] ✅</div></div>
+                <div class="trace-row"><div class="trace-step">3</div><div><strong>Θ(n²)</strong> เสมอ (แม้เรียงอยู่แล้ว) + พื้นที่ O(n) — นับแทนการสลับ จึง stable</div></div>
+              </div>
+            </div>
           </div>
           <div>
             <div class="tag-row"><span class="badge badge-primary">Distribution Counting</span></div>
