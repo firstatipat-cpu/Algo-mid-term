@@ -47,6 +47,7 @@ document.getElementById('exam').innerHTML = String.raw`
 
   <div style="display:flex;gap:12px;margin-top:24px">
     <button class="btn btn-primary" id="exSubmit">✓ ส่งข้อสอบ (ตรวจคะแนน)</button>
+    <button class="btn" id="exReveal">เฉลยคำตอบทั้งหมด</button>
   </div>
   <div id="exStatus" style="color:var(--rose);font-size:13px;margin-top:8px"></div>
 </div>
@@ -238,6 +239,15 @@ document.getElementById('exSubmit').addEventListener('click', () => {
   document.getElementById('exSubmit').disabled = true;
   document.getElementById('exRetry').addEventListener('click', exReset);
   document.getElementById('exResult').scrollIntoView({ behavior: 'smooth' });
+});
+
+document.getElementById('exReveal').addEventListener('click', () => {
+  document.querySelectorAll('#exMcq .ex-q').forEach(qEl => {
+    const ans = EXAM_MCQ[+qEl.dataset.q].a;
+    qEl.querySelectorAll('.quiz-opt').forEach((o, oi) => { if (oi === ans) o.classList.add('correct'); });
+  });
+  document.querySelectorAll('#exWritten .ex-model').forEach(m => m.classList.add('show'));
+  document.getElementById('exStatus').textContent = 'แสดงเฉลยแล้ว — กด "ส่งข้อสอบ" เพื่อตรวจคะแนน (ยังไม่คำนวณคะแนนจนกว่าจะส่ง)';
 });
 
 function exReset() {
