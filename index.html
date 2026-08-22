@@ -53,6 +53,7 @@
     <div class="nav-label">Practice</div>
     <a class="nav-item" data-target="ss"><span class="nav-num">S</span> State Space Search</a>
     <a class="nav-item" data-target="quiz"><span class="nav-num">Q</span> แบบฝึกหัด</a>
+    <a class="nav-item" data-target="exam"><span class="nav-num">E</span> จำลองการสอบ</a>
     <a class="nav-item" data-target="reference"><span class="nav-num">§</span> สรุปสูตร</a>
     <a class="nav-item nav-item-cheat" data-target="reference"><span class="nav-num">★</span> Cheat Sheet หน้าเดียว</a>
   </aside>
@@ -154,6 +155,11 @@
         <div class="toc-card-title">แบบฝึกหัด</div>
         <div class="toc-card-meta"><span id="tocQuizCount">74</span> ข้อ · ทบทวนทั้งหมด</div>
       </a>
+      <a class="toc-card" data-target="exam">
+        <div class="toc-card-num">Exam</div>
+        <div class="toc-card-title">จำลองการสอบ Midterm</div>
+        <div class="toc-card-meta">40 ปรนัย + 5 เขียนคำตอบ · 20 คะแนน</div>
+      </a>
     </div>
 
     <!-- ===== CHAPTERS (injected by js/chapters/*.js) ===== -->
@@ -199,6 +205,9 @@
       </div>
     </section>
 
+    <!-- ===== EXAM SIMULATION (injected by js/exam.js) ===== -->
+    <section class="section" id="exam"></section>
+
     <!-- ===== REFERENCE (injected by js/chapters/reference.js) ===== -->
     <section class="section" id="reference"></section>
 
@@ -226,6 +235,8 @@
 <script src="js/chapters/w7.js"></script>
 <script src="js/chapters/ss.js"></script>
 <script src="js/chapters/reference.js"></script>
+<script src="js/exam-data.js"></script>
+<script src="js/exam.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>
