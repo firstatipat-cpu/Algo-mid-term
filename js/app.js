@@ -1416,7 +1416,7 @@ document.getElementById('quizReveal').addEventListener('click', () => {
 /* ============================================
    KEYBOARD NAVIGATION
 ============================================ */
-const sectionIds = ['hero','w1','w2','w3','w4','w5','w6','w7','ss','quiz','reference'];
+const sectionIds = ['hero','w1','w2','w3','w4','w5','w6','w7','ss','quiz','exam','reference'];
 document.addEventListener('keydown', (e) => {
   if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
   const current = sectionIds.findIndex(id => {

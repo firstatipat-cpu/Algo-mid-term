@@ -1098,3 +1098,16 @@ input[type="range"]{
 .ss-node-dim{opacity:.18}
 .ss-edge-dim{opacity:.10}
 .ss-edge-hot{stroke:#2196F3;stroke-width:3;opacity:.95}
+
+/* ===== EXAM SIMULATION ===== */
+.ex-rules{line-height:1.9;font-size:14px;color:var(--ink-2);margin-top:8px;padding-left:20px}
+.ex-opt-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+@media(max-width:700px){.ex-opt-grid{grid-template-columns:1fr}}
+.quiz-opt.selected{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,var(--bg-card))}
+.quiz-opt.selected .quiz-opt-mark{background:var(--accent);color:#fff;border-color:var(--accent)}
+.ex-subrow{display:flex;align-items:center;gap:10px;margin-top:10px}
+.ex-subrow label{flex:0 0 auto;font-size:13.5px;color:var(--ink);max-width:55%;line-height:1.4}
+.ex-subrow input[type="text"]{flex:1;min-width:120px}
+.ex-subrow.ex-bad input[type="text"]{border-color:var(--rose)}
+.ex-model{margin-top:12px;padding:12px 14px;border-left:3px solid var(--accent);background:var(--bg-alt);font-size:13.5px;color:var(--ink-2);border-radius:6px;display:none}
+.ex-model.show{display:block}
